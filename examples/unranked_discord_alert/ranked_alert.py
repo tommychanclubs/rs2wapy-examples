@@ -5,7 +5,7 @@ from discord_webhook import DiscordWebhook
 from rs2wapy import RS2WebAdmin
 
 # Set this to True to enable this example application.
-RUN = False
+RUN = True
 
 # These variables are pulled from the runtime environment,
 # don't store passwords or secret information in this file!
@@ -23,14 +23,14 @@ DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
 # For the pings to work the role ID must be of the following format
 # <&ROLE_ID> where ROLE_ID is the role ID you copied from Discord.
 PING_DISCORD_ROLES = [
-    "<&111117777888889999>",  # Example role ping, put your real role ID(s) here!
+    "<&467620596776173568>","<&426349416849604618>" # Example role ping, put your real role ID(s) here!
 ]
 
 # Poll values are in seconds.
 # Poll ranked status every 5 seconds.
 POLL_INTERVAL = 5
-# Alert every 15 minutes if server is unranked.
-ALERT_INTERVAL = 60 * 15
+# Alert every 5 minutes if server is unranked.
+ALERT_INTERVAL = 60 * 5
 
 
 def main():
@@ -67,7 +67,7 @@ def main():
             time.sleep(POLL_INTERVAL - time.time() % POLL_INTERVAL)
 
         except Exception as e:
-            print(f"error: {e}, retrying in 15 seconds")
+            print(f"error: {e}, retrying in 5 seconds")
             time.sleep(15)
 
 

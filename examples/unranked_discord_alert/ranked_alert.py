@@ -25,9 +25,9 @@ DISCORD_WEBHOOK_URL_3 = os.environ["DISCORD_WEBHOOK_URL_3"]
 # For the pings to work the role ID must be of the following format
 # <&ROLE_ID> where ROLE_ID is the role ID you copied from Discord.
 PING_DISCORD_ROLES = [
-    "<&467620596776173568>", # role 1
-    "<&426349416849604618>",  # role 2
-    "<&382494838131785728>",  # role 2
+    "<@&467620596776173568>", # role 1
+    "<@&426349416849604618>",  # role 2
+    "<@&319876616442347520>",  # role 3
 ]
 
 # Poll values are in seconds.

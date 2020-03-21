@@ -13,6 +13,8 @@ WEBADMIN_USERNAME = os.environ["WEBADMIN_USERNAME"]
 WEBADMIN_PASSWORD = os.environ["WEBADMIN_PASSWORD"]
 WEBADMIN_URL = os.environ["WEBADMIN_URL"]
 DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
+DISCORD_WEBHOOK_URL_2 = os.environ["DISCORD_WEBHOOK_URL_2"]
+DISCORD_WEBHOOK_URL_3 = os.environ["DISCORD_WEBHOOK_URL_3"]
 
 # Paste the role IDs here that you want to get pinged
 # when the unranked alert message is sent.
@@ -25,13 +27,14 @@ DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
 PING_DISCORD_ROLES = [
     "<&467620596776173568>", # role 1
     "<&426349416849604618>",  # role 2
+    "<&382494838131785728>",  # role 2
 ]
 
 # Poll values are in seconds.
 # Poll ranked status every 5 seconds.
 POLL_INTERVAL = 5
-# Alert every 15 minutes if server is unranked.
-ALERT_INTERVAL = 60 * 5
+# Alert every 2 minutes if server is unranked.
+ALERT_INTERVAL = 60 * 2
 
 
 def main():
@@ -60,6 +63,10 @@ def main():
 
                 # Post the warning message to Discord.
                 webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
+                webhook.execute()
+                webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL_2, content=message)
+                webhook.execute()
+                webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL_3, content=message)
                 webhook.execute()
 
                 time.sleep(ALERT_INTERVAL)
